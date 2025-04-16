@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "omyu_pretty";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*{ box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: "omyu_pretty"}
+
+body{background-color: rgb(255, 255, 255);
+padding: 40px;background-image: url(desert-8041046_1280.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+
+main{max-width: 700px;
+margin: 0 auto;
+/*background-color: #ecfffa; */
+background-color: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(10px);
+box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+padding: 50px;
+position: relative;
+}
+
+h1{text-align: center;
+margin-bottom: 40px;}
+
+form{display: flex; 
+flex-direction: column;
+gap: 50px;
+margin-left: 25px;}
+
+label{ font-weight: bold;
+margin-bottom: 5px;
+ ;}
+ .form-group2{margin-left: 200px;}
+
+ button {padding: 10px;
+width: 90px;
+border: 1px solid black;
+border-radius: 8px;background-color: rgb(255, 255, 255);
+margin-left: 230px;
+}
+button:hover{background-color: rgb(221, 221, 221); }
+
+input[type=email], input[type=password] {
+    width: 250px;
+    height: 30px;
+    border: 2px solid rgb(153, 153, 153);
+}
+
+input[type=radio]{margin-left: -30px;}
+input{ padding: 20px;width: 100px; border-radius: 5px; margin-left: 150px;}
+
+a{position: absolute
+;bottom: 10px;
+right: 20px;}

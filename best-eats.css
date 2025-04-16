@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "omyu_pretty";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "omyu_pretty";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*모바일*/
+.container {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  background-color: aliceblue;
+}
+
+header > h1,
+h3 {
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+#best-eats {
+  width: 100px;
+}
+.best-eats > div {
+  border: 2px solid black;
+  margin-bottom: 20px;
+  height: 300px;
+  position: relative;
+}
+
+.best-eats h2 {
+  position: absolute;
+  left: 3%;
+  top: 10px;
+  color: rgb(7, 255, 243);
+  text-shadow: 1px 1px 0.3px black;
+}
+
+.info {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  color: white;
+  text-shadow: 1px 1px 0.3px black;
+}
+#place1,
+#place2,
+#place3,
+#place4 {
+  width: 100%;
+}
+
+#place1 {
+  background: url(./성광식당\ 국밥.jpg) no-repeat center/cover;
+}
+#place2 {
+  background: url(./여수지지전골마당.jpg) no-repeat center/cover;
+}
+#place3 {
+  background: url(./주누돈까스.jpg) no-repeat center/cover;
+}
+#place4 {
+  background: url(./장백꼬치.jpg) no-repeat center/cover;
+}
+
+footer {
+  width: 100%;
+  background-color: aliceblue;
+  height: 50px;
+}
+
+footer > p {
+  color: black;
+  text-align: center;
+  line-height: 50px;
+  font-size: 15px;
+}
+
+/*태블릿*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .best-eats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  #place1,
+  #place2,
+  #place3,
+  #place4 {
+    width: 49%;
+  }
+}
+
+/*pc스타일*/
+@media (min-width: 1024px) {
+  .best-eats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  #place1,
+  #place2,
+  #place3,
+  #place4 {
+    width: 24%;
+  }
+}

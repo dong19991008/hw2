@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "omyu_pretty";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "omyu_pretty";
+  line-height: 1.6;
+}
+
+header,
+nav,
+main,
+section,
+article,
+footer {
+  padding: 20px;
+}
+
+header {
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+nav {
+  background-color: yellow;
+  color: black;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 300px;
+  list-style: none;
+}
+
+nav ul:hover{text-decoration: underline;}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  
+  gap: 20px;
+  padding: 20px;
+  background-color: aliceblue;
+  flex: 1;
+}
+
+.sidebar{display: flex;
+flex-direction: column;
+gap: 20px;}
+
+section {
+  background-color: rgb(255, 247, 138);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+article h2 {
+  margin-bottom: 20px;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: red;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  margin-top:0px
+}
+
+aside {
+  background-color: antiquewhite;
+  padding: 20px;
+  border-radius: 8px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
