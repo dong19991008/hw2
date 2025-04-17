@@ -13,47 +13,79 @@
       
         <h2 id="todoTitle">할 일 목록</h2>
         <ul id="doItList" style="display: none;"></ul>
-      </div>
+    </div>
       
-      <script>
-        function workPlus() {
-          const inputEl = document.getElementById("work");
-          const input = inputEl.value;
-          if (!input) return;
-      
-          const li = document.createElement("li");
-      
-          const span = document.createElement("span");
-          span.innerText = input;
-          li.appendChild(span);
-            //수정버튼
-          const editBtn = document.createElement("button");
-          editBtn.innerText = "수정";
-          editBtn.onclick = function () {
-            const newText = prompt("수정할 내용을 입력하세요", span.innerText);
-            if (newText !== null && newText !== "") {
-              span.innerText = newText;
-            }
-          };
-          li.appendChild(editBtn);
-       // 삭제버튼
-          const deleteBtn = document.createElement("button");
-          deleteBtn.innerText = "삭제";
-          deleteBtn.onclick = function () {
-            li.remove();
-          };
-          li.appendChild(deleteBtn);
-      
-          const list = document.getElementById("doItList");
-          list.appendChild(li);
-      
-          //숨긴거 등장
-          list.style.display = "block";
-         //입력창 비우기
-          inputEl.value = "";
+    <script>
+     //브라우저 닫았다 열어도 저장되는 방법은 전혀 안떠올라서 지피티한테 만들어달라했습니다ㅠ 나머지는 혼자 최대한 해보고 모르는 부분 힌트 받으면서 만들었습니다. 코드보고 어떤흐름인지는 알겠는데 그걸 아무것도 없는 상태에서 짜라고 하면 어떻게 시작해야 할지 감도 안잡히고 너무 어려워요ㅠ 벌써 한참 밀린거같아서 두렵습니다ㅜㅜ
+        
+        // 페이지 로드 시 로컬 스토리지에서 할 일 목록 불러오기
+        window.onload = function() {
+            loadTasks();
         }
-      </script>
-      
-      
+        function workPlus() {
+            const inputEl = document.getElementById("work");
+            const input = inputEl.value;
+            if (!input) return;
+
+            // 기존 할 일 목록 가져오기
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            // 새로운 할 일 객체 추가
+            const task = { text: input };
+            // 할 일 목록에 새로운 할 일 추가
+            tasks.push(task);
+            // 로컬 스토리지에 할 일 목록 저장
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            // 할 일 목록 화면에 업데이트
+            displayTasks();
+            // 입력창 비우기
+            inputEl.value = "";
+        }
+
+        // 할 일 목록 화면에 표시
+        function displayTasks() {
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            const list = document.getElementById("doItList");
+            list.innerHTML = ""; // 기존 목록 지우기
+
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+
+                const span = document.createElement("span");
+                span.innerText = task.text;
+                li.appendChild(span);
+
+                const editBtn = document.createElement("button");
+                editBtn.innerText = "수정";
+                editBtn.onclick = function () {
+                    const newText = prompt("수정할 내용을 입력하세요", span.innerText);
+                    if (newText !== null && newText !== "") {
+                        task.text = newText;
+                        localStorage.setItem("tasks", JSON.stringify(tasks)); // 다시 저장
+                        displayTasks(); // 화면 갱신
+                    }
+                };
+                li.appendChild(editBtn);
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.innerText = "삭제";
+                deleteBtn.onclick = function () {
+                    tasks.splice(index, 1); 
+                    localStorage.setItem("tasks", JSON.stringify(tasks)); // 다시 저장
+                    displayTasks(); // 화면 갱신
+                };
+                li.appendChild(deleteBtn);
+
+                list.appendChild(li);
+            });
+
+            document.getElementById("todoTitle").style.display = "block";
+            list.style.display = "block";
+        }
+
+        // 로컬 스토리지에서 할 일 목록 불러오기
+        function loadTasks() {
+            displayTasks(); // 할 일 목록 표시 함수 호출
+        }
+    </script>
 </body>
 </html>
